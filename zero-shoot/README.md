@@ -13,9 +13,9 @@ Zero-shot image classification is a cutting-edge computer vision task in which a
 | *The process of zero-shot learning involves the use of an embedding network trained on a large dataset to extract a feature vector. This feature vector is then used to calculate the probability of the input fitting one of the given labels. image obtained from [www.v7labs.com](https://www.v7labs.com/blog/zero-shot-learning-guide)* |
 
 In this learning paradigm, the data consists of three essential components: 
-- Seen data: Are images and their corresponding labels, which the model uses to learn during training.
-- Unseen data: Only consist in labels, and no images are provided.
-- Auxiliary information: This can be in the form of textual descriptions or word embeddings and helps the model to generalize to new classes.
+- **Seen data** Are images and their corresponding labels, which the model uses to learn during training.
+- **Unseen data** consist only in labels, and no images are provided.
+- **Auxiliary information** can be in the form of textual descriptions or word embeddings and helps the model to generalize to new classes.
 
 The use of zero-shot image classification is crucial as it allows models to learn more efficiently and effectively. Traditional image classification models require large amounts of labeled data for each class to be recognized, which can be time-consuming and expensive to collect. With zero-shot image classification, models can learn to recognize new classes using only a small amount of additional information, such as class attributes or semantic relationships between classes, which is often easier and cheaper to obtain [[2]](https://arxiv.org/abs/1707.00600).
 
@@ -27,7 +27,7 @@ The CLIP model consists of two parts: a text transformer for encoding text embed
 
 | ![zero-shot-image-classification-clip.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shoot/zero-shot-image-classification-clip.png) | 
 |:--:| 
-| *CLIP Architecture. image obtained from [https://www.pinecone.io](https://www.pinecone.io/learn/zero-shot-image-classification-clip/)* |
+| *CLIP model architecture summary. image obtained from [https://www.pinecone.io](https://www.pinecone.io/learn/zero-shot-image-classification-clip/)* |
 
 One of the key features of CLIP is its use of a large dataset of 400M text-image pairs scraped from across the internet during its pretraining process. This large dataset size allows CLIP to build a strong understanding of general textual concepts displayed within images. Additionally, CLIP requires only image-text pairs rather than specific class labels, thanks to its contrastive rather than classification-focused training function. This type of data is abundant in today’s social-media-centric world.
 
@@ -69,7 +69,27 @@ The following table shows the selected labels.
 |:--:| 
 | *Random selected images from the dataset.* |
 
-The hypothesis template is as follows: "This is an image of a {} road sign."
+The auxiliary information hypothesis template is as follows: "This is an image of a {} road sign."
+
+## Performance stimation
+
+The performance of the model was estimated on base of the confusion matrix. A confusion matrix is a table that is often used to describe the performance of a classification algorithm, such as a machine learning model. It is typically used to describe the performance of a model on a set of test data for which the true values are known.
+
+The columns of the matrix represent the predicted class, while the rows represent the true class. The entries in the matrix represent the number of observations that were predicted to belong to a certain class, but were actually of a different class.
+
+| ![zero-shoot/confusion_matrix_scheme.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shoot/confusion_matrix_scheme.png) | 
+|:--:| 
+| * Confusion matrix scheme. image obtained from [https://en.wikipedia.org](https://en.wikipedia.org/wiki/Confusion_matrix)* |
+
+- **Accuracy** is the ratio of correctly predicted observation to the total observations. ( (True Positive + True Negative) / Total )
+
+- **Precision** is the ratio of correctly predicted positive observations to the total predicted positive observations. (True Positive / (True Positive + False Positive))
+
+- **Recall (Sensitivity)** is the ratio of correctly predicted positive observations to the all observations in actual class. (True Positive / (True Positive + False Negative))
+
+- **F1 Score** is the Harmonic Mean between precision and recall. The range for F1 Score is [0, 1]. It tells you how precise your classifier is (how many instances it classifies correctly), as well as how robust it is (it does not miss a significant number of instances). The greater the F1 Score, the better is the performance of our model.
+
+All of these metrics are important for evaluating the performance of a classification model, and can help to understand where the model is making errors and how to improve it.
 
 ## Installation
 
