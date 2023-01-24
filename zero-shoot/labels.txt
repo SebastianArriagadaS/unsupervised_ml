@@ -1,0 +1,43 @@
+Speed limit 20
+Speed limit 30
+Speed limit 50
+Speed limit 60
+Speed limit 70
+Speed limit 80
+End of speed limit 80
+Speed limit 100
+Speed limit 120
+No overtaking
+No overtaking for trucks
+Give way
+Priority road
+Yield
+Stop
+Road closed
+Heavy vehicles prohibited
+Do not enter
+General warning
+Left bend
+Right bend
+Double bend
+Uneven road
+Slippery road
+Narrow road
+Roadworks ahead
+Traffic signals ahead
+Pedestrian crossing
+Watch for children
+Bicycle crossing
+Snow
+Cattle on the road
+End of all restrictions
+Turn right ahead
+Turn left ahead
+Straight ahead only
+Ahead or turn right only
+Ahead or turn left only
+Bypass on right
+Bypass on left
+Roundabout
+End of no overtaking zone
+End of no overtaking zone for trucks
