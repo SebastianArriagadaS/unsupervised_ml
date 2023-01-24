@@ -6,28 +6,32 @@ The selected model correspond to [clip-vit-base-patch32](https://huggingface.co/
 
 ## About Zero-Shot image classification
 
-Zero-shot image classification is a cutting-edge computer vision task in which a model is trained to recognize new classes of objects without having seen any examples of those classes during training. It is a variation of transfer learning, where the knowledge acquired during the training of one model is transferred to classify novel classes that were not present in the original training data. For instance, a model that has been trained to differentiate cats from dogs can be used to classify images others animal like horses [1](https://huggingface.co/tasks/zero-shot-image-classification).
+Zero-shot image classification is a cutting-edge computer vision task in which a model is trained to recognize new classes of objects without having seen any examples of those classes during training. It is a variation of transfer learning, where the knowledge acquired during the training of one model is transferred to classify novel classes that were not present in the original training data. For instance, a model that has been trained to differentiate cats from dogs can be used to classify images others animal like horses [[1]](https://huggingface.co/tasks/zero-shot-image-classification).
 
-![Zero-Shot Learning Process. The embedding network trained on a large data set is used to extract a feature vector with which the probability of fitting one of the given labels is calculated. image obtained from [2](https://www.v7labs.com/blog/zero-shot-learning-guide)](zero-shoot/zero-shot classification scheme.png)
+| ![zero-shot%20classification%20scheme.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shoot/zero-shot%20classification%20scheme.png) | 
+|:--:| 
+| *The process of zero-shot learning involves the use of an embedding network trained on a large dataset to extract a feature vector. This feature vector is then used to calculate the probability of the input fitting one of the given labels. image obtained from [www.v7labs.com](https://www.v7labs.com/blog/zero-shot-learning-guide)* |
 
 In this learning paradigm, the data consists of three essential components: 
 - Seen data: Are images and their corresponding labels, which the model uses to learn during training.
 - Unseen data: Only consist in labels, and no images are provided.
 - Auxiliary information: This can be in the form of textual descriptions or word embeddings and helps the model to generalize to new classes.
 
-The use of zero-shot image classification is crucial as it allows models to learn more efficiently and effectively. Traditional image classification models require large amounts of labeled data for each class to be recognized, which can be time-consuming and expensive to collect. With zero-shot image classification, models can learn to recognize new classes using only a small amount of additional information, such as class attributes or semantic relationships between classes, which is often easier and cheaper to obtain [3](https://arxiv.org/abs/1707.00600).
+The use of zero-shot image classification is crucial as it allows models to learn more efficiently and effectively. Traditional image classification models require large amounts of labeled data for each class to be recognized, which can be time-consuming and expensive to collect. With zero-shot image classification, models can learn to recognize new classes using only a small amount of additional information, such as class attributes or semantic relationships between classes, which is often easier and cheaper to obtain [[2]](https://arxiv.org/abs/1707.00600).
 
 ## About the model
 
 The model correspond to a CLIP (Contrastive Language-Image Pretraining) version, which is a transformer-based model developed by OpenAI in 2021. It is designed to make zero-shot image classification more effective.
 
-The CLIP model consists of two parts: a text transformer for encoding text embeddings and a vision transformer (ViT) for encoding image embeddings. Both models are optimized during pretraining to align similar text and images in vector space. This is achieved by taking image-text pairs and pushing their output vectors closer in vector space while separating the vectors of non-pairs [4](https://www.pinecone.io/learn/zero-shot-image-classification-clip/).
+The CLIP model consists of two parts: a text transformer for encoding text embeddings and a vision transformer (ViT) for encoding image embeddings. Both models are optimized during pretraining to align similar text and images in vector space. This is achieved by taking image-text pairs and pushing their output vectors closer in vector space while separating the vectors of non-pairs [[3]](https://www.pinecone.io/learn/zero-shot-image-classification-clip/).
 
-![CLIP Architecture. image obtained from [4](https://www.pinecone.io/learn/zero-shot-image-classification-clip/)](zero-shoot/zero-shot-image-classification-clip.png)
+| ![zero-shot-image-classification-clip.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shoot/zero-shot-image-classification-clip.png) | 
+|:--:| 
+| *CLIP Architecture. image obtained from [https://www.pinecone.io](https://www.pinecone.io/learn/zero-shot-image-classification-clip/)* |
 
 One of the key features of CLIP is its use of a large dataset of 400M text-image pairs scraped from across the internet during its pretraining process. This large dataset size allows CLIP to build a strong understanding of general textual concepts displayed within images. Additionally, CLIP requires only image-text pairs rather than specific class labels, thanks to its contrastive rather than classification-focused training function. This type of data is abundant in today’s social-media-centric world.
 
-In specific, this model uses a ViT-B/32 Transformer architecture as an image encoder and uses a masked self-attention Transformer as a text encoder. These encoders are trained to maximize the similarity of (image, text) pairs via a contrastive loss [5](https://huggingface.co/openai/clip-vit-base-patch32).
+In specific, this model uses a ViT-B/32 Transformer architecture as an image encoder and uses a masked self-attention Transformer as a text encoder. These encoders are trained to maximize the similarity of (image, text) pairs via a contrastive loss [[4]](https://huggingface.co/openai/clip-vit-base-patch32).
 
 ### Limitations and biases
 
@@ -61,9 +65,11 @@ The following table shows the selected labels.
 | 39 | Bypass on left | 40 | Roundabout | 41 | End of no overtaking zone |
 | 42 | End of no overtaking zone for trucks |
 
-![Random images from the dataset](zero-shoot/labels.png)
+| ![zero-shoot/labels.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shoot/labels.png) | 
+|:--:| 
+| *Random selected images from the dataset.* |
 
-The hypotesis template is the following: "This is an image of a {} road sign."
+The hypothesis template is as follows: "This is an image of a {} road sign."
 
 ## Installation
 
