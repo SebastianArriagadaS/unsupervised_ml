@@ -72,3 +72,14 @@ In the third part I could test a more advanced model which is the Invariant Info
 Finally I did some research on other advanced models with Semantic Clustering. The goal is to transform the images to do Self Supervized as in the previous model and then apply a Nearest Neighbors algorithm. I did not implement it because Sacha was already working on a similar subject.
 
 ![Untitled](https://user-images.githubusercontent.com/116168201/214251296-86fea8b4-c3ab-4f5a-b4e1-8dcef83821cf.png)
+
+## Sacha's work : 
+
+I chose to focus on K-NN model approach. This let us have a comparison between Supervised and Unsupervised Learning models and check if there is a big improve or not. The algorithms details and principles are detailled in my report part. I did i fact 4 different approachs : 
+- A Standard KNN approach by coputing all our distances by flattening our pictures. (accuracy ~40%)
+- A PCA + K-NN in order to reduce our dimension (accuracy ~7%)
+- A Semi-Supervised Label Propagation with knn kernel approach (accuracy ~35%)
+- A Neural Network model (ResNet50) (accuracy ~70%)
+- A ResNet50 + Dense-KNN layer (accuracy ~2%)
+
+K-NN is a really good Supervised Learning model for numeric data in small dimensions, or data that can be reduced easily, because our pictures represent too much data for a "simple" Machine Learning algorithm that can't handle really high-dimension spaces (our was more than 3000). The Neural Network was really useful and has great performances.
