@@ -94,3 +94,11 @@ An extract of the results is presented below.
 | End of no overtaking zone for trucks | 44.6 | 0.0 | 0.0 | 0.0 |
 
 If we focus on the [confusion matrix](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shot/confusion_matrix.png), we can observe that most errors occur in False Positives with the label "General Warning", this can be due to the model having learned the general concept of a traffic sign. Along with this, it is important to consider that there are two types of patterns that repeat in all signs, which are the circular and triangular shapes. This can make recognition more difficult, as to differentiate them, the model has to focus mainly on the center area.
+
+Therefore, this method may be more useful for research on general features, for example, the results presented below show that if we only differentiate between triangular and circular signs, we obtain very good results.
+
+| Label | Accuracy | Precision | Recall | F1_score |
+|-------|----------|-----------|--------|----------|
+| **Global resutls** |  **98.20** | **98.23** |  **98.21** |  **98.21** |
+| circle | 97.1 | 99.4 | 93.0 | 98.5 |
+| triangle | 95.6 | 96.5 | 99.1 | 97.8 |

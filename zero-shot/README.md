@@ -125,7 +125,7 @@ python create_confusion_matrix.py
 
 | Label | Accuracy | Precision | Recall | F1_score |
 |-------|----------|-----------|--------|----------|
-| Global resutls |  24.1 |  28.5 |  24.1 |  22.2 |
+| **Global resutls** |  **24.1** | **28.5** |  **24.1** |  **22.2** |
 | Speed limit 20 | 78.7 | 82.3 | 93.0 | 87.3 |
 | Speed limit 30 | 60.2 | 63.3 | 81.0 | 71.1 |
 | Speed limit 50 | 54.6 | 84.0 | 21.0 | 33.6 |
@@ -175,3 +175,17 @@ If we focus on the [confusion matrix](https://github.com/SebastianArriagadaS/uns
 | ![confusion_matrix.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shot/confusion_matrix.png) | 
 |:--:| 
 | *Confusion matrix* |
+
+Therefore, this method may be more useful for research on general features, for example, the results presented below show that if we only differentiate between triangular and circular signs, we obtain very good results.
+
+| Label | Accuracy | Precision | Recall | F1_score |
+|-------|----------|-----------|--------|----------|
+| **Global resutls** |  **98.20** | **98.23** |  **98.21** |  **98.21** |
+| circle | 97.1 | 99.4 | 93.0 | 98.5 |
+| triangle | 95.6 | 96.5 | 99.1 | 97.8 |
+
+| ![confusion_matrix.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shot/confusion_matrix_tri_crl.png) | 
+|:--:| 
+| *Confusion matrix* |
+
+In conclusion, this method is highly recommended if it is possible to assign labels that literally describe what is shown in the image. On the other hand, it presents deficient results if the description corresponds to concepts or abstract figures rooted in human collective knowledge.
