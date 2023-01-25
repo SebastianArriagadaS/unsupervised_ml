@@ -4,16 +4,18 @@ This repository contains the code for the unsupervised machine learning project 
 
 This project is based on the German traffic sign recognition benchmark dataset. The dataset contains 43 different classes of traffic signs. The goal of the project is find the best unsupervised learning method to cluster the traffic signs into the 43 classes.
 
-## Jérémie's work : 
+## Jérémie Capdeville's work : 
 
 For my part, I was interested in several models. First, I wanted to see how well a supervised model performed in order to have a performance benchmark.
 Then I did some research and tried a model using pre-trained neural networks to extract features from images. I then applied a Kmeans algorithm on these features with or without Principal Component Analysis to predict in an unsupervised way.
 In the third part I could test a more advanced model which is the Invariant Information Clustering. I first tested it on the MNIST dataset which is the one on which it performs the best. I then wanted to train it on our dataset but I ran into a non-learning problem that I could not solve.
 Finally I did some research on other advanced models with Semantic Clustering. The goal is to transform the images to do Self Supervized as in the previous model and then apply a Nearest Neighbors algorithm. I did not implement it because Sacha was already working on a similar subject.
 
+All my work is detailed on notion. You can read it here https://skinny-dinosaur-7b7.notion.site/J-r-mie-CAPDEVILLE-Report-67f05c7a5f6b488285b732d45c4b10d8. You also have a pdf version in my folder but it's not as pretty as notion.
+
 ![Untitled](https://user-images.githubusercontent.com/116168201/214251296-86fea8b4-c3ab-4f5a-b4e1-8dcef83821cf.png)
 
-## Sacha's work : 
+## Sacha Besson's work : 
 
 I chose to focus on K-NN model approach. This let us have a comparison between Supervised and Unsupervised Learning models and check if there is a big improve or not. The algorithms details and principles are detailled in my report part. I did i fact 4 different approachs : 
 - A Standard KNN approach by coputing all our distances by flattening our pictures. (accuracy ~40%)
