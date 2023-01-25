@@ -69,7 +69,7 @@ The chosen unsupervised method was [Zero-Shot Image Classification](https://gith
 
 The CLIP Vit model was used, which consists of a text transformer for encoding text embeddings and a vision transformer (ViT) for encoding image embeddings, allowing for the association of an image with potential labels provided. 
 
-It can be concluded that this model is quite sensitive to the provided labels and the similarity of new images to the training database. As seen in the results, there are explicit labels regarding the image where very high *F1 scores* are obtained, such as the stop sign with *92%* or speed limit signs with ranges between *87 to 50%*. However, for labels with names that do not exactly describe what the image shows, such as "End of no overtaking zone," the *F1 score* is close to *0%*.
+It can be concluded that this model is quite sensitive to the provided labels and the similarity of new images to the training database. As seen in the results, there are explicit labels regarding the image where very high **F1 scores** are obtained, such as the stop sign with **92%** or speed limit signs with ranges between **87 to 50%**. However, for labels with names that do not exactly describe what the image shows, such as "End of no overtaking zone" the **F1 score** is close to **0%**.
 
 An extract of the results is presented below.
 

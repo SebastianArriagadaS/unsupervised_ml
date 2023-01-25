@@ -115,7 +115,7 @@ The output will be a csv with the three best predictions for each image. The csv
 
 ## Show results
 
-To show some graphs you can use "create_graphs.py". The script will create a bar graph with the accuracy from each label and will save the summary of the results in a csv file.
+To show some graphs you can use "create_confusion_matrix.py". The script will create a bar graph with the accuracy from each label and will save the summary of the results in a csv file.
 
 ```bash
 
@@ -169,3 +169,9 @@ python create_confusion_matrix.py
 | Roundabout | 35.7 | 16.7 | 20.0 | 18.2 |
 | End of no overtaking zone | 37.7 | 1.5 | 1.0 | 1.2 |
 | End of no overtaking zone for trucks | 44.6 | 0.0 | 0.0 | 0.0 |
+
+If we focus on the [confusion matrix](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shoot/confusion_matrix.png), we can observe that most errors occur in False Positives with the label "General Warning", this can be due to the model having learned the general concept of a traffic sign. Along with this, it is important to consider that there are two types of patterns that repeat in all signs, which are the circular and triangular shapes. This can make recognition more difficult, as to differentiate them, the model has to focus mainly on the center area.
+
+| ![confusion_matrix.png](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shoot/confusion_matrix.png) | 
+|:--:| 
+| *Confusion matrix* |
