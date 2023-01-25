@@ -45,12 +45,6 @@ acc_3rd = (acc_1st + acc_2nd + acc_3rd) / len(results)
 acc_2nd = (acc_1st + acc_2nd) / len(results)
 acc_1st = acc_1st / len(results)
 
-# plot the results in a barplot
-# sns.barplot(x=["1st", "2nd", "3rd"], y=[acc_1st, acc_2nd, acc_3rd])
-# plt.title("Accuracy of the predictions")
-# plt.xlabel("Position")
-# plt.ylabel("Accuracy")
-# plt.show()
 
 # create a plot per present label
 present_labels = results["correct_label"].unique()

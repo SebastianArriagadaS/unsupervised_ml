@@ -65,7 +65,7 @@ The reason why I choose autoencoders, is also simple. There are 3 ways: 1. Feed-
 
 ## Sebastian Arriagada's work :
 
-The chosen unsupervised method was [Zero-Shot Image Classification](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shoot), which is a subgroup of transfer learning. 
+The chosen unsupervised method was [Zero-Shot Image Classification](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shot), which is a subgroup of transfer learning. 
 
 The CLIP Vit model was used, which consists of a text transformer for encoding text embeddings and a vision transformer (ViT) for encoding image embeddings, allowing for the association of an image with potential labels provided. 
 
@@ -93,4 +93,4 @@ An extract of the results is presented below.
 | End of no overtaking zone | 37.7 | 1.5 | 1.0 | 1.2 |
 | End of no overtaking zone for trucks | 44.6 | 0.0 | 0.0 | 0.0 |
 
-If we focus on the [confusion matrix](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shoot/confusion_matrix.png), we can observe that most errors occur in False Positives with the label "General Warning", this can be due to the model having learned the general concept of a traffic sign. Along with this, it is important to consider that there are two types of patterns that repeat in all signs, which are the circular and triangular shapes. This can make recognition more difficult, as to differentiate them, the model has to focus mainly on the center area.
+If we focus on the [confusion matrix](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shot/confusion_matrix.png), we can observe that most errors occur in False Positives with the label "General Warning", this can be due to the model having learned the general concept of a traffic sign. Along with this, it is important to consider that there are two types of patterns that repeat in all signs, which are the circular and triangular shapes. This can make recognition more difficult, as to differentiate them, the model has to focus mainly on the center area.

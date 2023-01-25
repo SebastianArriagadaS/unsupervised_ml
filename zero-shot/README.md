@@ -1,4 +1,4 @@
-# Zero-Shoot Image Clasification
+# Zero-shot Image Clasification
 
 This repository contains the code for the zero-shot image classification method. This work is strongly based on the paper [Zero-Shot Learning - A Comprehensive Evaluation of the Good, the Bad and the Ugly](https://arxiv.org/abs/1707.00600). 
 
@@ -8,7 +8,7 @@ The selected model correspond to [clip-vit-base-patch32](https://huggingface.co/
 
 Zero-shot image classification is a cutting-edge computer vision task in which a model is trained to recognize new classes of objects without having seen any examples of those classes during training. It is a variation of transfer learning, where the knowledge acquired during the training of one model is transferred to classify novel classes that were not present in the original training data. For instance, a model that has been trained to differentiate cats from dogs can be used to classify images others animal like horses [[1]](https://huggingface.co/tasks/zero-shot-image-classification).
 
-| ![zero-shot%20classification%20scheme.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shoot/zero-shot%20classification%20scheme.png) | 
+| ![zero-shot%20classification%20scheme.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shot/zero-shot%20classification%20scheme.png) | 
 |:--:| 
 | *The process of zero-shot learning involves the use of an embedding network trained on a large dataset to extract a feature vector. This feature vector is then used to calculate the probability of the input fitting one of the given labels. image obtained from [www.v7labs.com](https://www.v7labs.com/blog/zero-shot-learning-guide)* |
 
@@ -27,7 +27,7 @@ The model correspond to a CLIP (Contrastive Language-Image Pretraining) version,
 
 The CLIP model consists of two parts: a text transformer for encoding text embeddings and a vision transformer (ViT) for encoding image embeddings. Both models are optimized during pretraining to align similar text and images in vector space. This is achieved by taking image-text pairs and pushing their output vectors closer in vector space while separating the vectors of non-pairs [[3]](https://www.pinecone.io/learn/zero-shot-image-classification-clip/).
 
-| ![zero-shot-image-classification-clip.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shoot/zero-shot-image-classification-clip.png) | 
+| ![zero-shot-image-classification-clip.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shot/zero-shot-image-classification-clip.png) | 
 |:--:| 
 | *CLIP model architecture summary. image obtained from [https://www.pinecone.io](https://www.pinecone.io/learn/zero-shot-image-classification-clip/)* |
 
@@ -67,7 +67,7 @@ The following table shows the selected labels.
 | 39 | Bypass on left | 40 | Roundabout | 41 | End of no overtaking zone |
 | 42 | End of no overtaking zone for trucks |
 
-| ![zero-shoot/labels.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shoot/labels.png) | 
+| ![zero-shot/labels.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shot/labels.png) | 
 |:--:| 
 | *Random selected images from the dataset.* |
 
@@ -79,7 +79,7 @@ The performance of the model was estimated on base of the confusion matrix. A co
 
 The columns of the matrix represent the predicted class, while the rows represent the true class. The entries in the matrix represent the number of observations that were predicted to belong to a certain class, but were actually of a different class.
 
-| ![zero-shoot/confusion_matrix_scheme.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shoot/confusion_matrix_scheme.png) | 
+| ![zero-shot/confusion_matrix_scheme.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shot/confusion_matrix_scheme.png) | 
 |:--:| 
 | * Confusion matrix scheme. image obtained from [https://en.wikipedia.org](https://en.wikipedia.org/wiki/Confusion_matrix)* |
 
@@ -170,8 +170,8 @@ python create_confusion_matrix.py
 | End of no overtaking zone | 37.7 | 1.5 | 1.0 | 1.2 |
 | End of no overtaking zone for trucks | 44.6 | 0.0 | 0.0 | 0.0 |
 
-If we focus on the [confusion matrix](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shoot/confusion_matrix.png), we can observe that most errors occur in False Positives with the label "General Warning", this can be due to the model having learned the general concept of a traffic sign. Along with this, it is important to consider that there are two types of patterns that repeat in all signs, which are the circular and triangular shapes. This can make recognition more difficult, as to differentiate them, the model has to focus mainly on the center area.
+If we focus on the [confusion matrix](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shot/confusion_matrix.png), we can observe that most errors occur in False Positives with the label "General Warning", this can be due to the model having learned the general concept of a traffic sign. Along with this, it is important to consider that there are two types of patterns that repeat in all signs, which are the circular and triangular shapes. This can make recognition more difficult, as to differentiate them, the model has to focus mainly on the center area.
 
-| ![confusion_matrix.png](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shoot/confusion_matrix.png) | 
+| ![confusion_matrix.png](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shot/confusion_matrix.png) | 
 |:--:| 
 | *Confusion matrix* |

@@ -11,7 +11,7 @@ parent_path = os.path.dirname(path)
 
 def process_images(labels_num, n_images):
     # load txt with the labels and put it in a list
-    with open(f"{path}/labels.txt", "r") as f:
+    with open(f"{path}/no_official_labels.txt", "r") as f:
         labels = f.read().splitlines()
 
     print(f"Labels ({len(labels)}):")
