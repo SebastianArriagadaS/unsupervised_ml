@@ -4,68 +4,8 @@ This repository contains the code for the unsupervised machine learning project 
 
 This project is based on the German traffic sign recognition benchmark dataset. The dataset contains 43 different classes of traffic signs. The goal of the project is find the best unsupervised learning method to cluster the traffic signs into the 43 classes.
 
-## Installation
-
-You can find a setup script in the root directory of the repository. The script will create a virtual environment and install all the required packages. The script is tested on Ubuntu 20.04.2.
-
-```bash
-./setup.sh
-```
-
-## Usage
-
-With the file 'pipeline.py' you can run the zero-shot learning pipeline. The pipeline will download the model and process the imagenes from the given folders. Below you can find the usage for 100 images and the labels number 1 and 2.
-
-```bash
-
-python pipeline.py --labels_num 1 2 --num_images 100
-
-```
-
-The output will be a csv with the three best predictions for each image. The csv will be saved in the 'results' folder.
-
-## Show results
-
-To show some graphs you can use "create_graphs.py". The script will create a bar graph with the accuracy from each label and will save the summary of the results in a csv file.
-
-```bash
-
-python create_graphs.py
-
-```
-
-Until the moment you can see the summary results in the following table:
-
-| Label | Accuracy 1st | Accuracy 2nd acc | Accuracy 3rd acc | 
-| :---: | :---: | :---: | :---: |
-| Maximum speed 20 | 86 | 97 | 99 |
-| Stop | 93 | 94 | 95 |
-| Heavy Vehicles prohibited | 76 | 89 | 93 |
-| Maximum speed 70 | 91 | 93 | 94 |
-| Maximum speed 60 | 36 | 75 | 85 |
-| Maximum speed 30 | 48 | 68 | 83 |
-| Watch for children | 59 | 71 | 80 |
-| Maximum speed 50 | 71 | 76 | 77 |
-| End maximum speed 80 | 44 | 62 | 76 |
-| Maximum speed 100 | 61 | 66 | 70 |
-| Yield | 43 | 60 | 67 |
-| Maximum speed 80 | 4 | 28 | 48 |
-| Pedestrian crossing | 11 | 27 | 37 |
-| End of no passing zone | 4 | 10 | 16 |
-| Turn right ahead | 5 | 14 | 24 |
-| End of all restrictions | 2 | 13 | 18 |
-| Ahead or turn left only | 0 | 3 | 10 |
-| No passing for trucks | 0 | 5 | 6 |
-| Cattle | 2 | 3 | 4 |
-| Ahead or turn right only | 0 | 1 | 3 |
-| No passing | 2 | 3 | 8 |
-| Ahead only | 0 | 1 | 1 |
-
-The performance of this method depends a lot from the selected label names. For that reason, we tried to find the best label names for each label. The following table the different tries for the labels with worst performance.
-
-TODO
-
 ## Jérémie's work : 
+
 For my part, I was interested in several models. First, I wanted to see how well a supervised model performed in order to have a performance benchmark.
 Then I did some research and tried a model using pre-trained neural networks to extract features from images. I then applied a Kmeans algorithm on these features with or without Principal Component Analysis to predict in an unsupervised way.
 In the third part I could test a more advanced model which is the Invariant Information Clustering. I first tested it on the MNIST dataset which is the one on which it performs the best. I then wanted to train it on our dataset but I ran into a non-learning problem that I could not solve.
@@ -83,3 +23,74 @@ I chose to focus on K-NN model approach. This let us have a comparison between S
 - A ResNet50 + Dense-KNN layer (accuracy ~2%)
 
 K-NN is a really good Supervised Learning model for numeric data in small dimensions, or data that can be reduced easily, because our pictures represent too much data for a "simple" Machine Learning algorithm that can't handle really high-dimension spaces (our was more than 3000). The Neural Network was really useful and has great performances.
+
+## Mei Jiaojiao's work :
+
+The whole repository can be found at the following link:
+https://github.com/JIAOJIAOMEI/ImageClustering_J7project
+
+This is jiaojiao's independent work for J7project, the deep clustering task of traffic signs.
+
+One can review the summary of literature and also the experiments at the following link(**references of literature and code are also attached in the end**):
+
+https://github.com/JIAOJIAOMEI/ImageClustering_J7project/blob/main/Summary/summary_v6fisc.md
+
+here is a pdf version of the summary with **table of contents**, please find it at the link:
+
+https://github.com/JIAOJIAOMEI/ImageClustering_J7project/blob/main/Summary/summary_v6fisc.pdf
+
+One can find the code and the dataset in this file:
+
+https://github.com/JIAOJIAOMEI/ImageClustering_J7project/tree/main/Code
+
+**Before get into the details, here is a short descrption of my work**:
+
+For machine learning methods, I tried 1. pure K-means; 2.transfer learning+K-means; 3.Agglomerative clustering + PCA with 4 different linkages.
+
+For deep learning methods, I tried several ways to implement autoencoders, which are 1.simple autoencoders; 2.Multiplayer auto encoders; 3. Convolutional autoencoders and 4. Regularized autoencoders.
+
+- Pure K-means received the accuracy at 18%.
+- Transfer learning does not improve pure K-means, the pertained model I used is ResNet50, this model is trained on ImageNet which contains most natrual images, not by our case (traffic signs). Although it does not improve the accuracy, it does not decrease it either.
+- I tried single linkage, ward linkage, centroid linkage and complete linkage when using Agglomerative clustering + PCA method. I think ward linkage performs the best outcome between these 4, and better than pure Kmeans, also better than transfer learning. The evidence is that the 43 centers produced by ward linkage are most different from each other.
+- Among all the 4 autoencoders I tried, I think the performance are organized as the following: multilayer autoencoders>simple autoencoders>regularized autoencoders>convolutional autoencoders. The convolutional auto encoders I tried cannot give any useful information at all, maybe the training data is not enough, or maybe somewhere I made a mistake. The convolutional autoencoders is the most complicated autoencoders, but it fails to meet my expectation.
+- Deep learning methods are not necessarily better than machine learning methods in a specific situation, it depends on many factors, for example, the coding ability of who implements it, or GPU resources, or the level of feature extraction, or the understanding of the task.
+
+The reason why I choose K-means and Agglomerative clustering, is simply because that they produce results like "one picture can only be in one class", this is very important. Our dataset is about traffic signs, these classes are strongly independent, either it belongs to this category, or it belongs to another category. Another reason is that these methods are easily to be implemented.
+
+Although the classes/categories are strongly independent, the pictures are not that kind of independent. For example, the following pictures do have something in common. This is what makes the task difficult. Machine learning methods can learn the shapes and the colors, but fails to learn the details like "2","3","5", and something like this.
+
+![43 categories](https://github.com/JIAOJIAOMEI/ImageClustering_J7project/blob/main/43%20categories.png)
+
+The reason why I choose autoencoders, is also simple. There are 3 ways: 1. Feed-forward networks; 2. autoencoders (a type of feed-forward networks designed for clustering); 3. GAN & VAE. It seems like two ways are about feed-forward networks, and autoencoders are designed for this. Then, I tried autoenders. I think GAN & VAE are also very interesting, maybe next time I will try. 
+
+## Sebastian Arriagada's work :
+
+The chosen unsupervised method was [Zero-Shot Image Classification](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shoot), which is a subgroup of transfer learning. 
+
+The CLIP Vit model was used, which consists of a text transformer for encoding text embeddings and a vision transformer (ViT) for encoding image embeddings, allowing for the association of an image with potential labels provided. 
+
+It can be concluded that this model is quite sensitive to the provided labels and the similarity of new images to the training database. As seen in the results, there are explicit labels regarding the image where very high *F1 scores* are obtained, such as the stop sign with *92%* or speed limit signs with ranges between *87 to 50%*. However, for labels with names that do not exactly describe what the image shows, such as "End of no overtaking zone," the *F1 score* is close to *0%*.
+
+An extract of the results is presented below.
+
+| Label | Accuracy | Precision | Recall | F1_score |
+|-------|----------|-----------|--------|----------|
+| **Global resutls** |  **24.1** | **28.5** |  **24.1** |  **22.2** |
+| Speed limit 20 | 78.7 | 82.3 | 93.0 | 87.3 |
+| Speed limit 30 | 60.2 | 63.3 | 81.0 | 71.1 |
+| Speed limit 50 | 54.6 | 84.0 | 21.0 | 33.6 |
+| Speed limit 60 | 46.9 | 45.0 | 59.0 | 51.1 |
+| Speed limit 70 | 76.9 | 86.5 | 83.0 | 84.7 |
+| Speed limit 80 | 55.9 | 69.1 | 38.0 | 49.0 |
+| End of speed limit 80 | 44.1 | 32.9 | 26.0 | 29.1 |
+| Speed limit 100 | 69.4 | 86.8 | 66.0 | 75.0 |
+| Speed limit 120 | 59.5 | 71.6 | 53.0 | 60.9 |
+| Ahead or turn right only | 44.6 | 0.0 | 0.0 | 0.0 |
+| Ahead or turn left only | 42.6 | 0.0 | 0.0 | 0.0 |
+| Bypass on right | 39.4 | 0.0 | 0.0 | 0.0 |
+| Bypass on left | 40.3 | 10.0 | 6.0 | 7.5 |
+| Roundabout | 35.7 | 16.7 | 20.0 | 18.2 |
+| End of no overtaking zone | 37.7 | 1.5 | 1.0 | 1.2 |
+| End of no overtaking zone for trucks | 44.6 | 0.0 | 0.0 | 0.0 |
+
+If we focus on the [confusion matrix](https://github.com/SebastianArriagadaS/unsupervised_ml/tree/main/zero-shoot/confusion_matrix.png), we can observe that most errors occur in False Positives with the label "General Warning", this can be due to the model having learned the general concept of a traffic sign. Along with this, it is important to consider that there are two types of patterns that repeat in all signs, which are the circular and triangular shapes. This can make recognition more difficult, as to differentiate them, the model has to focus mainly on the center area.

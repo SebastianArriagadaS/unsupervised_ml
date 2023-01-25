@@ -57,7 +57,7 @@ from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, r
 predictions = []
 true_labels = []
 for result in result_list:
-    df = pd.read_csv(f"{path}{results_folder}/{result}")
+    df = pd.read_csv(f"{path}/{results_folder}/{result}")
     correct_label = labels[int(result.split("_")[1].split(".")[0])]
     # get the predictions
     predictions += df["label_1"].tolist()
@@ -120,17 +120,21 @@ for label in labels:
     except ZeroDivisionError:
         signle_results[label]["f1_score"] = 0
 # print the results
-print("Results per label:")
-for label in labels:
-    print(f"{label}:")
-    print(f"Accuracy: {signle_results[label]['accuracy']}")
-    print(f"Precision: {signle_results[label]['precision']}")
-    print(f"Recall: {signle_results[label]['recall']}")
-    print(f"F1 Score: {signle_results[label]['f1_score']}")
-    print()
+# print("Results per label:")
+# for label in labels:
+#     print(f"{label}:")
+#     print(f"Accuracy: {signle_results[label]['accuracy']}")
+#     print(f"Precision: {signle_results[label]['precision']}")
+#     print(f"Recall: {signle_results[label]['recall']}")
+#     print(f"F1 Score: {signle_results[label]['f1_score']}")
+#     print()
 
 # create a csv with the results per label
 df = pd.DataFrame(signle_results).T
+# multiply the columns with 100 to get the percentage
+df = df.mul(100)
+# round all the columns to 1 decimals
+df = df.round(1)
 df.to_csv(f"{path}/results_per_label.csv", index=True)
 
 
