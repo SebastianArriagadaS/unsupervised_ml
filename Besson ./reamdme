@@ -1,1 +1,8 @@
+I chose to focus on K-NN model approach. This let us have a comparison between Supervised and Unsupervised Learning models and check if there is a big improve or not. The algorithms details and principles are detailled in my report part. I did i fact 4 different approachs : 
+- A Standard KNN approach by coputing all our distances by flattening our pictures. (accuracy ~40%)
+- A PCA + K-NN in order to reduce our dimension (accuracy ~7%)
+- A Semi-Supervised Label Propagation with knn kernel approach (accuracy ~35%)
+- A Neural Network model (ResNet50) (accuracy ~70%)
+- A ResNet50 + Dense-KNN layer (accuracy ~2%)
 
+K-NN is a really good Supervised Learning model for numeric data in small dimensions, or data that can be reduced easily, because our pictures represent too much data for a "simple" Machine Learning algorithm that can't handle really high-dimension spaces (our was more than 3000). The Neural Network was really useful and has great performances.
