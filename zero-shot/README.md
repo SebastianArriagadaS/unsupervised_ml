@@ -184,7 +184,7 @@ Therefore, this method may be more useful for research on general features, for 
 | circle | 97.1 | 99.4 | 93.0 | 98.5 |
 | triangle | 95.6 | 96.5 | 99.1 | 97.8 |
 
-| ![confusion_matrix.png](https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shot/confusion_matrix_tri_crl.png) | 
+| <img src="https://github.com/SebastianArriagadaS/unsupervised_ml/blob/main/zero-shot/confusion_matrix_tri_crl.png" width="500" height="500"> | 
 |:--:| 
 | *Confusion matrix* |
 
